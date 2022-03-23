@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Resolver
 
 struct FetchAllCollectionsUseCase: FetchAllCollectionsUseCaseProtocol {
-    let repository: CollectionRepositoryProtocol
+    @Injected private var repository: CollectionRepositoryProtocol
 
     func fetchAll() async throws -> [Collection] {
         try await repository.fetchAll(.fetchFromCache)

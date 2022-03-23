@@ -2,6 +2,7 @@
 
 import Foundation
 import SwiftUI
+import Resolver
 
 final class CollectionsViewModel: ListViewModelProtocol {
     private var collections = [Collection]() {
@@ -10,28 +11,29 @@ final class CollectionsViewModel: ListViewModelProtocol {
         }
     }
 
-    private let useCase: FetchAllCollectionsUseCaseProtocol
+    @Injected private var useCase: FetchAllCollectionsUseCaseProtocol
 
-    @Published var title: LocalizedStringKey = "My Collections"
-    @Published var state: ListViewModelState = .initial
-    @Published var items = [ItemVO]()
-
-    init(useCase: FetchAllCollectionsUseCaseProtocol) {
-        self.useCase = useCase
-    }
+    @Published private(set) var title: LocalizedStringKey = "My Collections"
+    @Published private(set) var state: ListViewModelState = .initial
+    @Published private(set) var items = [ItemVO]()
+    @Published var showError: Bool = false
+    private(set) var error: LocalizedStringKey = ""
 
     @MainActor func fetchAll(pullRefresh: Bool) async {
         if items.isEmpty && !pullRefresh {
             state = .loading
         }
 
+        defer { state = .loaded }
+
         do {
             collections = try await useCase.fetchAll()
-            state = .loaded
         } catch FetchAllCollectionsError.error1 {
-            state = .error("my first error")
+            error = "my first error"
+            showError = true
         } catch FetchAllCollectionsError.error2 {
-            state = .error("my second error")
+            error = "my second error"
+            showError = true
         } catch {
             print("Unexpected error: \(error)")
         }

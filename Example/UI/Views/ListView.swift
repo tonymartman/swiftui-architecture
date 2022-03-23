@@ -4,7 +4,6 @@ import SwiftUI
 
 struct ListView<ViewModel: ListViewModelProtocol>: View {
     @StateObject var viewModel: ViewModel
-    @State var showError = false
 
     var body: some View {
         contentView
@@ -24,16 +23,11 @@ extension ListView {
         switch viewModel.state {
         case .initial, .loaded:
             list
-        case .loading:
-            ProgressView()
-        case .error(let text):
-            list
-                .alert(text, isPresented: $showError) {
+                .alert(viewModel.error, isPresented: $viewModel.showError) {
                     Button("OK", role: .cancel) {}
                 }
-                .onAppear {
-                    showError = true
-                }
+        case .loading:
+            ProgressView()
         }
     }
 
@@ -56,8 +50,7 @@ extension ListView {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        let useCase = FetchAllCollectionsUseCase(repository: CollectionRepository())
-        let viewModel = CollectionsViewModel(useCase: useCase)
+        let viewModel = CollectionsViewModel()
 
         NavigationView {
             ListView(viewModel: viewModel)

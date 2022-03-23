@@ -30,6 +30,8 @@ extension Resolver: ResolverRegistering {
         .implements(CollectionRepositoryProtocol.self)
 
         // use cases
-
+        
+        register { FetchAllCollectionsUseCase() }
+        .implements(FetchAllCollectionsUseCaseProtocol.self)
     }
 }

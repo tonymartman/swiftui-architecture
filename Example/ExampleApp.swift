@@ -8,12 +8,7 @@ struct ExampleApp: App {
         WindowGroup {
             NavigationView {
                 //SearchView(viewModel: CollectionsSearchViewModel())
-                ListView(viewModel: CollectionsViewModel(
-                    useCase: FetchAllCollectionsUseCase(
-                        repository: CollectionRepository()
-                    )
-                )
-                )
+                ListView(viewModel: CollectionsViewModel())
             }
         }
     }
