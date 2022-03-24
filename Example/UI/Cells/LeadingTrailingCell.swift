@@ -24,7 +24,7 @@ struct LeadingTrailingCell: View {
 
 struct LeadingTrailingCell_Previews: PreviewProvider {
     static var previews: some View {
-        let item = ItemVO(id: UUID(),
+        let item = ItemVO(id: UUID().uuidString,
                           leadingText: "Movies",
                           trailingText: "Tony")
         

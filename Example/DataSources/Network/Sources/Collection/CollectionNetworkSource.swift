@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import Resolver
 
-struct CollectionNetworkSource {}
+struct CollectionNetworkSource {
+    @Injected private(set) var networkClient: NetworkClient
+}
 
 extension CollectionNetworkSource: CollectionFetchingDataSourceProtocol {
     func fetchCollection(id: UUID) async throws -> Collection? {
@@ -16,7 +19,8 @@ extension CollectionNetworkSource: CollectionFetchingDataSourceProtocol {
     }
 
     func fetchCollections() async throws -> [Collection] {
-        // TODO: usar network client
-        []
+        let operation = MyCollectionsOperation()
+        let collections = try await networkClient.send(operation)
+        return collections.map { $0.toDomain() }
     }
 }

@@ -21,7 +21,8 @@ final class NetworkClient {
     func send<T: GraphQLOperation>(_ operation: T) async throws -> T.Response {
         let (data, response) = try await send(operation)
         try validate(response: response, data: data)
-        return try JSONDecoder().decode(T.Response.self, from: data)
+        let graphQLResponse = try JSONDecoder().decode(GraphQLResponse<T.Response>.self, from: data)
+        return graphQLResponse.dto
     }
 }
 

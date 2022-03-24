@@ -16,6 +16,10 @@ extension Resolver: ResolverRegistering {
         register { CoreDataManager(modelName: "Model") }
         .implements(CoreDataManagerProtocol.self)
 
+        // network client
+
+        register { NetworkClient(host: URL(string: "https://api-dev.applicate.biz/graphql/")!, delegate: MyNetworkClientDelegate()) }
+
         // data sources
 
         register { CollectionNetworkSource() }

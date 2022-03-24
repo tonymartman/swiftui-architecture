@@ -3,13 +3,13 @@
 import Foundation
 
 struct Collection: Domain {
-    let id: UUID
+    let id: String
     let name: String
     let owner: String
 }
 
 extension Collection {
-    static func fetch(id: UUID) async -> Collection {
+    static func fetch(id: String) async -> Collection {
         try? await Task.sleep(nanoseconds: 2 * NSEC_PER_SEC)
         return Collection.mock()
     }

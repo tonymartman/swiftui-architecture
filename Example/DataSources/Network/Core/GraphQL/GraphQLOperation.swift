@@ -9,7 +9,7 @@ import Foundation
 
 protocol GraphQLOperation {
     associatedtype Variables: Encodable
-    associatedtype Response: DTO
+    associatedtype Response: Decodable
 
     var query: String { get }
     var operationName: String { get }
@@ -38,7 +38,7 @@ extension GraphQLOperation {
 private extension GraphQLOperation {
     func additionalHeaders() -> [String: String] {
         [
-            "Content-Type": "application/graphql",
+            "Content-Type": "application/json",
             "Accept": "application/json"
         ]
     }

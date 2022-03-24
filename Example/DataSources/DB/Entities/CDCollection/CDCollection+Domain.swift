@@ -14,7 +14,7 @@ extension CDCollection: DomainConvertible {
             fatalError("impossible to convert to Collection domain")
         }
 
-        return Collection(id: id, name: name, owner: owner)
+        return Collection(id: id.uuidString, name: name, owner: owner)
     }
 }
 
@@ -22,7 +22,7 @@ extension Collection: ManagedObjectConvertible {
     @discardableResult func toManagedObject(manager: CoreDataManagerProtocol, context: NSManagedObjectContext) throws -> NSManagedObject {
         let predicate = NSPredicate(format: "%K == %@", #keyPath(CDCollection.identifier), id as CVarArg)
         return try manager.createOrUpdate(entity: CDCollection.self, predicate: predicate, context: context) { object in
-            object.identifier = id
+            object.identifier = UUID(uuidString: id)
             object.name = name
             object.owner = owner
         }

@@ -8,7 +8,7 @@
 import Foundation
 
 struct ItemVO: VO {
-    let id: UUID
+    let id: String
     let leadingText: String
     let trailingText: String
 }

@@ -12,6 +12,6 @@ struct FetchAllCollectionsUseCase: FetchAllCollectionsUseCaseProtocol {
     @Injected private var repository: CollectionRepositoryProtocol
 
     func fetchAll() async throws -> [Collection] {
-        try await repository.fetchAll(.fetchFromCache)
+        try await repository.fetchAll(.ignoreCache)
     }
 }

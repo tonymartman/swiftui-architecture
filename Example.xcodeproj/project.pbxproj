@@ -44,10 +44,13 @@
 		EA9B216F27D7967F00A73251 /* LeadingTrailingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9B216E27D7967F00A73251 /* LeadingTrailingCell.swift */; };
 		EA9B217727D79FD000A73251 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9B217627D79FD000A73251 /* DetailView.swift */; };
 		EA9B217E27D7EE2300A73251 /* CollectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9B217D27D7EE2300A73251 /* CollectionsViewModel.swift */; };
+		EAB32E4D27EC86EB003276E6 /* MyNetworkClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E4C27EC86EB003276E6 /* MyNetworkClientDelegate.swift */; };
+		EAB32E5027EC9998003276E6 /* NullEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E4F27EC9998003276E6 /* NullEncodable.swift */; };
+		EAB32E5227ECAA10003276E6 /* GraphQLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E5127ECAA10003276E6 /* GraphQLResponse.swift */; };
 		EAC3E56B27EB1A7000AC294B /* FetchingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3E56A27EB1A7000AC294B /* FetchingType.swift */; };
 		EAC3E56E27EB85F100AC294B /* GraphQLOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3E56D27EB85F100AC294B /* GraphQLOperation.swift */; };
 		EAC3E57027EB860B00AC294B /* GraphQLOperationBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3E56F27EB860B00AC294B /* GraphQLOperationBody.swift */; };
-		EAC3E57227EB865B00AC294B /* MyOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3E57127EB865B00AC294B /* MyOperation.swift */; };
+		EAC3E57227EB865B00AC294B /* MyCollectionsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3E57127EB865B00AC294B /* MyCollectionsOperation.swift */; };
 		EAC3E57427EB867800AC294B /* CollectionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3E57327EB867800AC294B /* CollectionDTO.swift */; };
 		EAC3E57727EB868C00AC294B /* DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3E57627EB868C00AC294B /* DTO.swift */; };
 /* End PBXBuildFile section */
@@ -90,10 +93,13 @@
 		EA9B216E27D7967F00A73251 /* LeadingTrailingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingTrailingCell.swift; sourceTree = "<group>"; };
 		EA9B217627D79FD000A73251 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		EA9B217D27D7EE2300A73251 /* CollectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewModel.swift; sourceTree = "<group>"; };
+		EAB32E4C27EC86EB003276E6 /* MyNetworkClientDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNetworkClientDelegate.swift; sourceTree = "<group>"; };
+		EAB32E4F27EC9998003276E6 /* NullEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullEncodable.swift; sourceTree = "<group>"; };
+		EAB32E5127ECAA10003276E6 /* GraphQLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResponse.swift; sourceTree = "<group>"; };
 		EAC3E56A27EB1A7000AC294B /* FetchingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingType.swift; sourceTree = "<group>"; };
 		EAC3E56D27EB85F100AC294B /* GraphQLOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLOperation.swift; sourceTree = "<group>"; };
 		EAC3E56F27EB860B00AC294B /* GraphQLOperationBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLOperationBody.swift; sourceTree = "<group>"; };
-		EAC3E57127EB865B00AC294B /* MyOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOperation.swift; sourceTree = "<group>"; };
+		EAC3E57127EB865B00AC294B /* MyCollectionsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionsOperation.swift; sourceTree = "<group>"; };
 		EAC3E57327EB867800AC294B /* CollectionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDTO.swift; sourceTree = "<group>"; };
 		EAC3E57627EB868C00AC294B /* DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,6 +181,7 @@
 		EA66EE7C27E8AF6200725E22 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				EAB32E4C27EC86EB003276E6 /* MyNetworkClientDelegate.swift */,
 				EA66EEAA27E8EAA500725E22 /* Core */,
 				EA8F48D527E9EA6D0025AF3A /* DTOs */,
 				EA66EE8027E8AFB100725E22 /* Operations */,
@@ -196,7 +203,7 @@
 		EA66EE8027E8AFB100725E22 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				EAC3E57127EB865B00AC294B /* MyOperation.swift */,
+				EAC3E57127EB865B00AC294B /* MyCollectionsOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -298,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				EAC3E56C27EB85D000AC294B /* GraphQL */,
+				EAB32E4E27EC9988003276E6 /* Utils */,
 				EA66EE7E27E8AF9300725E22 /* NetworkClient.swift */,
 			);
 			path = Core;
@@ -462,6 +470,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		EAB32E4E27EC9988003276E6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EAB32E4F27EC9998003276E6 /* NullEncodable.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		EAC3E56927EB1A5D00AC294B /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,6 +491,7 @@
 			children = (
 				EAC3E56D27EB85F100AC294B /* GraphQLOperation.swift */,
 				EAC3E56F27EB860B00AC294B /* GraphQLOperationBody.swift */,
+				EAB32E5127ECAA10003276E6 /* GraphQLResponse.swift */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -575,8 +592,9 @@
 				EA66EEA227E8E2A300725E22 /* CoreDataManagerProtocol.swift in Sources */,
 				EA9B217E27D7EE2300A73251 /* CollectionsViewModel.swift in Sources */,
 				EA9B216727D794BF00A73251 /* Collection+Mock.swift in Sources */,
+				EAB32E5227ECAA10003276E6 /* GraphQLResponse.swift in Sources */,
 				EA90E02927D8C4F500AC85DB /* ListViewModelProtocol.swift in Sources */,
-				EAC3E57227EB865B00AC294B /* MyOperation.swift in Sources */,
+				EAC3E57227EB865B00AC294B /* MyCollectionsOperation.swift in Sources */,
 				EA66EE9C27E8DD0400725E22 /* VO.swift in Sources */,
 				EA90E03527D8E91F00AC85DB /* CollectionsSearchViewModel.swift in Sources */,
 				EA66EE8327E8B00000725E22 /* CollectionFetchingDataSourceProtocol.swift in Sources */,
@@ -586,6 +604,8 @@
 				EA9B215427D78D8300A73251 /* ListView.swift in Sources */,
 				EA66EE7F27E8AF9300725E22 /* NetworkClient.swift in Sources */,
 				EA90E03127D8E33900AC85DB /* Array+Collection.swift in Sources */,
+				EAB32E4D27EC86EB003276E6 /* MyNetworkClientDelegate.swift in Sources */,
+				EAB32E5027EC9998003276E6 /* NullEncodable.swift in Sources */,
 				EA66EE6B27E8996700725E22 /* ItemVO.swift in Sources */,
 				EA66EEA427E8E64300725E22 /* CoreDataManager.swift in Sources */,
 				EAC3E57027EB860B00AC294B /* GraphQLOperationBody.swift in Sources */,
