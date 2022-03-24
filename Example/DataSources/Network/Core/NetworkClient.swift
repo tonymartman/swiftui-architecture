@@ -18,16 +18,21 @@ final class NetworkClient {
         self.delegate = delegate ?? DefaultNetworkClientDelegate()
     }
 
-    func send<T: GraphQLOperation>(_ operation: T) async throws -> T.Response {
+    func send<T: Decodable>(_ operation: GraphQLOperation) async throws -> T {
         let (data, response) = try await send(operation)
         try validate(response: response, data: data)
-        let graphQLResponse = try JSONDecoder().decode(GraphQLResponse<T.Response>.self, from: data)
+        let graphQLResponse = try JSONDecoder().decode(GraphQLResponse<T>.self, from: data)
         return graphQLResponse.dto
+    }
+
+    func send(_ operation: GraphQLOperation) async throws {
+        let (data, response) = try await send(operation)
+        try validate(response: response, data: data)
     }
 }
 
 private extension NetworkClient {
-    func send<T: GraphQLOperation>(_ operation: T) async throws -> (Data, URLResponse) {
+    func send(_ operation: GraphQLOperation) async throws -> (Data, URLResponse) {
         do {
             return try await actuallySend(operation)
         } catch {
@@ -36,7 +41,7 @@ private extension NetworkClient {
         }
     }
 
-    func actuallySend<T: GraphQLOperation>(_ operation: T) async throws -> (Data, URLResponse) {
+    func actuallySend(_ operation: GraphQLOperation) async throws -> (Data, URLResponse) {
         var request = try operation.toURLRequest(host)
         if operation.needsAuthorization {
             delegate.client(self, needsAuthorizationHeaderForRequest: &request)

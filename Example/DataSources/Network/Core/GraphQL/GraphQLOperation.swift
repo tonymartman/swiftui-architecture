@@ -7,13 +7,11 @@
 
 import Foundation
 
-protocol GraphQLOperation {
-    associatedtype Variables: Encodable
-    associatedtype Response: Decodable
+struct EmptyVariables: Encodable {}
 
+protocol GraphQLOperation: Encodable {
     var query: String { get }
     var operationName: String { get }
-    var variables: Variables? { get }
     var needsAuthorization: Bool { get }
 }
 
@@ -24,7 +22,7 @@ extension GraphQLOperation {
 
         let body = GraphQLOperationBody(query: query,
                                         operationName: operationName,
-                                        variables: variables)
+                                        variables: self)
 
         request.httpBody = try JSONEncoder().encode(body)
         additionalHeaders().forEach { key, value in

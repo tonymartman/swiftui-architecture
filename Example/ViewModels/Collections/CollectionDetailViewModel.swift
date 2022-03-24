@@ -2,12 +2,14 @@
 
 import Foundation
 import SwiftUI
+import Resolver
 
 final class CollectionDetailViewModel: DetailViewModelProtocol {
     private var collection: Binding<Collection>
+    @Injected private var useCase: FetchCollectionUseCaseProtocol
+
     @Published private(set) var state: DetailViewModelState = .initial
     @Published private(set) var name: String
-
 
     init(collection: Binding<Collection>) {
         self.collection = collection
@@ -18,8 +20,13 @@ final class CollectionDetailViewModel: DetailViewModelProtocol {
         state = .loading
         defer { state = .loaded }
 
-        let collection = await Collection.fetch(id: collection.id)
-        update(collection: collection)
+        do {
+            let collection = try await useCase.fetchCollection(id: collection.id)
+            update(collection: collection)
+        } catch {
+            // TODO
+            print(error)
+        }
     }
 }
 

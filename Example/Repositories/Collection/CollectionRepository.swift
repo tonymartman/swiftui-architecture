@@ -25,10 +25,10 @@ struct CollectionRepository: CollectionRepositoryProtocol {
         }
     }
 
-    func fetch(id: UUID, _ fetchingType: FetchingType) async throws -> Collection? {
+    func fetch(id: String, _ fetchingType: FetchingType) async throws -> Collection {
         switch fetchingType {
         case .reloadAndCache:
-            guard let collection = try await networkSource.fetchCollection(id: id) else { return nil }
+            let collection = try await networkSource.fetchCollection(id: id)
             try await dbSource.save(collections: [collection])
             return collection
         case .ignoreCache:

@@ -12,10 +12,14 @@ import CoreData
 struct CollectionDBSource: CollectionDBSourceProtocol {
     @Injected private(set) var dbManager: CoreDataManagerProtocol
 
-    func fetchCollection(id: UUID) async throws -> Collection? {
-        let predicate = NSPredicate(format: "%K == %@", #keyPath(CDCollection.identifier), id as CVarArg)
-        return try dbManager.fetchFirst(entity: CDCollection.self, predicate: predicate, sorted: nil, context: nil)
-            .map { $0.toDomain() }
+    func fetchCollection(id: String) async throws -> Collection {
+        let predicate = NSPredicate(format: "%K == %@", #keyPath(CDCollection.identifier), id)
+
+        guard let collection = try dbManager.fetchFirst(entity: CDCollection.self, predicate: predicate, sorted: nil, context: nil) else {
+            throw FetchingDataError.itemNotFound(id: id)
+        }
+
+        return collection.toDomain()
     }
 
     func fetchCollections() async throws -> [Collection] {

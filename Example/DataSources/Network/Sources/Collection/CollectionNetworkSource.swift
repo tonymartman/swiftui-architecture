@@ -13,14 +13,15 @@ struct CollectionNetworkSource {
 }
 
 extension CollectionNetworkSource: CollectionFetchingDataSourceProtocol {
-    func fetchCollection(id: UUID) async throws -> Collection? {
-        // TODO: usar network client
-        nil
+    func fetchCollection(id: String) async throws -> Collection {
+        let operation = CollectionOperation(id: id)
+        let collection: CollectionDTO = try await networkClient.send(operation)
+        return collection.toDomain()
     }
 
     func fetchCollections() async throws -> [Collection] {
         let operation = MyCollectionsOperation()
-        let collections = try await networkClient.send(operation)
+        let collections: [CollectionDTO] = try await networkClient.send(operation)
         return collections.map { $0.toDomain() }
     }
 }

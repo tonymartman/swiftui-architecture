@@ -1,17 +1,19 @@
 //
-//  MyRequest.swift
+//  CollectionOperation.swift
 //  Example
 //
-//  Created by Tony Martinez on 23/3/22.
+//  Created by Tony Martinez on 24/3/22.
 //
 
 import Foundation
 
-struct MyCollectionsOperation: GraphQLOperation {
+struct CollectionOperation: GraphQLOperation {
+    let id: String
+
     var query: String {
         """
-        query MyCollections {
-          myCollections {
+        query Collection($id:UUID!) {
+          collection(id:$id) {
             id
             name
             owner {
@@ -23,9 +25,7 @@ struct MyCollectionsOperation: GraphQLOperation {
         """
     }
 
-    var operationName: String {
-        "MyCollections"
-    }
+    var operationName: String { "Collection" }
 
     var needsAuthorization: Bool { true }
 }

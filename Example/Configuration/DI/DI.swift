@@ -37,5 +37,8 @@ extension Resolver: ResolverRegistering {
         
         register { FetchAllCollectionsUseCase() }
         .implements(FetchAllCollectionsUseCaseProtocol.self)
+
+        register { FetchCollectionUseCase() }
+        .implements(FetchCollectionUseCaseProtocol.self)
     }
 }

@@ -47,6 +47,9 @@
 		EAB32E4D27EC86EB003276E6 /* MyNetworkClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E4C27EC86EB003276E6 /* MyNetworkClientDelegate.swift */; };
 		EAB32E5027EC9998003276E6 /* NullEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E4F27EC9998003276E6 /* NullEncodable.swift */; };
 		EAB32E5227ECAA10003276E6 /* GraphQLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E5127ECAA10003276E6 /* GraphQLResponse.swift */; };
+		EAB32E5427ECBF91003276E6 /* CollectionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E5327ECBF91003276E6 /* CollectionOperation.swift */; };
+		EAB32E5627ECC1CD003276E6 /* FetchCollectionUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E5527ECC1CD003276E6 /* FetchCollectionUseCaseProtocol.swift */; };
+		EAB32E5827ECC1F9003276E6 /* FetchCollectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E5727ECC1F9003276E6 /* FetchCollectionUseCase.swift */; };
 		EAC3E56B27EB1A7000AC294B /* FetchingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3E56A27EB1A7000AC294B /* FetchingType.swift */; };
 		EAC3E56E27EB85F100AC294B /* GraphQLOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3E56D27EB85F100AC294B /* GraphQLOperation.swift */; };
 		EAC3E57027EB860B00AC294B /* GraphQLOperationBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3E56F27EB860B00AC294B /* GraphQLOperationBody.swift */; };
@@ -96,6 +99,9 @@
 		EAB32E4C27EC86EB003276E6 /* MyNetworkClientDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNetworkClientDelegate.swift; sourceTree = "<group>"; };
 		EAB32E4F27EC9998003276E6 /* NullEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullEncodable.swift; sourceTree = "<group>"; };
 		EAB32E5127ECAA10003276E6 /* GraphQLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResponse.swift; sourceTree = "<group>"; };
+		EAB32E5327ECBF91003276E6 /* CollectionOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionOperation.swift; sourceTree = "<group>"; };
+		EAB32E5527ECC1CD003276E6 /* FetchCollectionUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCollectionUseCaseProtocol.swift; sourceTree = "<group>"; };
+		EAB32E5727ECC1F9003276E6 /* FetchCollectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCollectionUseCase.swift; sourceTree = "<group>"; };
 		EAC3E56A27EB1A7000AC294B /* FetchingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingType.swift; sourceTree = "<group>"; };
 		EAC3E56D27EB85F100AC294B /* GraphQLOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLOperation.swift; sourceTree = "<group>"; };
 		EAC3E56F27EB860B00AC294B /* GraphQLOperationBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLOperationBody.swift; sourceTree = "<group>"; };
@@ -163,7 +169,9 @@
 			isa = PBXGroup;
 			children = (
 				EA66EE7027E8A65100725E22 /* FetchAllCollectionsUseCaseProtocol.swift */,
+				EAB32E5527ECC1CD003276E6 /* FetchCollectionUseCaseProtocol.swift */,
 				EA66EE7227E8A67F00725E22 /* FetchAllCollectionsUseCase.swift */,
+				EAB32E5727ECC1F9003276E6 /* FetchCollectionUseCase.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -204,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				EAC3E57127EB865B00AC294B /* MyCollectionsOperation.swift */,
+				EAB32E5327ECBF91003276E6 /* CollectionOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -581,6 +590,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA90E03727D8E95100AC85DB /* SearchView.swift in Sources */,
+				EAB32E5427ECBF91003276E6 /* CollectionOperation.swift in Sources */,
 				EA66EEA027E8DFD000725E22 /* ManagedObjectConvertible.swift in Sources */,
 				EA66EE7A27E8AF3600725E22 /* CollectionRepository.swift in Sources */,
 				EA66EE6D27E899A000725E22 /* ItemVO+Collection.swift in Sources */,
@@ -592,6 +602,7 @@
 				EA66EEA227E8E2A300725E22 /* CoreDataManagerProtocol.swift in Sources */,
 				EA9B217E27D7EE2300A73251 /* CollectionsViewModel.swift in Sources */,
 				EA9B216727D794BF00A73251 /* Collection+Mock.swift in Sources */,
+				EAB32E5627ECC1CD003276E6 /* FetchCollectionUseCaseProtocol.swift in Sources */,
 				EAB32E5227ECAA10003276E6 /* GraphQLResponse.swift in Sources */,
 				EA90E02927D8C4F500AC85DB /* ListViewModelProtocol.swift in Sources */,
 				EAC3E57227EB865B00AC294B /* MyCollectionsOperation.swift in Sources */,
@@ -600,6 +611,7 @@
 				EA66EE8327E8B00000725E22 /* CollectionFetchingDataSourceProtocol.swift in Sources */,
 				EA9B217727D79FD000A73251 /* DetailView.swift in Sources */,
 				EA66EE8A27E8C6D000725E22 /* Model.xcdatamodeld in Sources */,
+				EAB32E5827ECC1F9003276E6 /* FetchCollectionUseCase.swift in Sources */,
 				EAC3E57727EB868C00AC294B /* DTO.swift in Sources */,
 				EA9B215427D78D8300A73251 /* ListView.swift in Sources */,
 				EA66EE7F27E8AF9300725E22 /* NetworkClient.swift in Sources */,

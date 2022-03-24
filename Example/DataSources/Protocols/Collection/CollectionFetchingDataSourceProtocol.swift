@@ -7,7 +7,11 @@
 
 import Foundation
 
+enum FetchingDataError: Error {
+    case itemNotFound(id: String)
+}
+
 protocol CollectionFetchingDataSourceProtocol {
-    func fetchCollection(id: UUID) async throws -> Collection?
+    func fetchCollection(id: String) async throws -> Collection
     func fetchCollections() async throws -> [Collection]
 }
