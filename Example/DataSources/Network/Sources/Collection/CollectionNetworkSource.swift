@@ -24,4 +24,11 @@ extension CollectionNetworkSource: CollectionFetchingDataSourceProtocol {
         let collections: [CollectionDTO] = try await networkClient.send(operation)
         return collections.map { $0.toDomain() }
     }
+
+    func fetchImages(id: String) async throws -> [Image] {
+        let input = PaginatedIdInputType(id: id)
+        let operation = CollectionImagesOperation(input: input)
+        let page: ImagePaginatedType = try await networkClient.send(operation)
+        return page.objects.map { $0.toDomain() }
+    }
 }

@@ -14,4 +14,5 @@ enum FetchingDataError: Error {
 protocol CollectionFetchingDataSourceProtocol {
     func fetchCollection(id: String) async throws -> Collection
     func fetchCollections() async throws -> [Collection]
+    func fetchImages(id: String) async throws -> [Image]
 }

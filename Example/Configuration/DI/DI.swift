@@ -18,7 +18,11 @@ extension Resolver: ResolverRegistering {
 
         // network client
 
-        register { NetworkClient(host: URL(string: "https://api-dev.applicate.biz/graphql/")!, delegate: MyNetworkClientDelegate()) }
+        register {
+            NetworkClient(host: URL(string: "https://api-dev.applicate.biz/graphql/")!,
+                          decoder: JSONDecoder.graphQL,
+                          delegate: MyNetworkClientDelegate())
+        }
 
         // data sources
 

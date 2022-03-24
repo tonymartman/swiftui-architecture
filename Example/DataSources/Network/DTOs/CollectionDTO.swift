@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct OwnerDTO: DTO {
-    let id: String
-    let firstName: String
-}
-
 struct CollectionDTO: DTO {
     let id: String
     let name: String

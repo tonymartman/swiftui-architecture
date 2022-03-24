@@ -34,4 +34,9 @@ struct CollectionDBSource: CollectionDBSourceProtocol {
             }
         }
     }
+
+    func fetchImages(id: String) async throws -> [Image] {
+        // TODO
+        return []
+    }
 }

@@ -62,6 +62,6 @@ extension CollectionsSearchViewModel {
     }
 
     @MainActor private func searchCollections(with name: String) async {
-        collections = await Collection.search(name: name)
+        //collections = await Collection.search(name: name)
     }
 }

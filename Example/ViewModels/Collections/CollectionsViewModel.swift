@@ -28,12 +28,6 @@ final class CollectionsViewModel: ListViewModelProtocol {
 
         do {
             collections = try await useCase.fetchAll()
-        } catch FetchAllCollectionsError.error1 {
-            error = "my first error"
-            showError = true
-        } catch FetchAllCollectionsError.error2 {
-            error = "my second error"
-            showError = true
         } catch {
             print("Unexpected error: \(error)")
         }

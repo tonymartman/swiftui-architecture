@@ -8,7 +8,7 @@
 import Foundation
 
 struct GraphQLResponse<T: Decodable>: Decodable {
-    let dto: T
+    let decodedValue: T
 
     private struct DynamicKey: CodingKey {
         var stringValue: String
@@ -28,7 +28,7 @@ struct GraphQLResponse<T: Decodable>: Decodable {
         let dataContainer = try container.nestedContainer(keyedBy: DynamicKey.self, forKey: dataKey)
 
         guard let operationKey = dataContainer.allKeys.first else { throw GraphQLResponseDecodingError.operationKeyNotFound }
-        dto = try dataContainer.decode(T.self, forKey: operationKey)
+        decodedValue = try dataContainer.decode(T.self, forKey: operationKey)
     }
 }
 
