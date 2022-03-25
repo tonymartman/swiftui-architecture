@@ -8,9 +8,10 @@
 import Foundation
 
 final class NetworkClient {
-    let host: URL
-    let session: URLSession
-    let decoder: JSONDecoder
+    private let host: URL
+    private let decoder: JSONDecoder
+    private let session: URLSession
+    
     var delegate: NetworkClientDelegate
 
     init(host: URL,

@@ -11,7 +11,7 @@ struct PaginatedIdInputType: Encodable {
     let id: String
     let page: Int?
     let pageSize: Int?
-    @NullEncodable var orderBy: [OrderByInputType]?
+    var orderBy: [OrderByInputType]?
 
     init(id: String, page: Int? = nil, pageSize: Int? = nil, orderBy: [OrderByInputType]? = nil) {
         self.id = id

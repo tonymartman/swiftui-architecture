@@ -10,5 +10,5 @@ import Foundation
 struct GraphQLOperationBody<T: Encodable>: Encodable {
     let query: String
     let operationName: String
-    @NullEncodable var variables: T?
+    var variables: T?
 }

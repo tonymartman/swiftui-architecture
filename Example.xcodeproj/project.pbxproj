@@ -45,7 +45,6 @@
 		EA9B217727D79FD000A73251 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9B217627D79FD000A73251 /* DetailView.swift */; };
 		EA9B217E27D7EE2300A73251 /* CollectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9B217D27D7EE2300A73251 /* CollectionsViewModel.swift */; };
 		EAB32E4D27EC86EB003276E6 /* MyNetworkClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E4C27EC86EB003276E6 /* MyNetworkClientDelegate.swift */; };
-		EAB32E5027EC9998003276E6 /* NullEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E4F27EC9998003276E6 /* NullEncodable.swift */; };
 		EAB32E5227ECAA10003276E6 /* GraphQLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E5127ECAA10003276E6 /* GraphQLResponse.swift */; };
 		EAB32E5427ECBF91003276E6 /* CollectionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E5327ECBF91003276E6 /* CollectionOperation.swift */; };
 		EAB32E5627ECC1CD003276E6 /* FetchCollectionUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E5527ECC1CD003276E6 /* FetchCollectionUseCaseProtocol.swift */; };
@@ -106,7 +105,6 @@
 		EA9B217627D79FD000A73251 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		EA9B217D27D7EE2300A73251 /* CollectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewModel.swift; sourceTree = "<group>"; };
 		EAB32E4C27EC86EB003276E6 /* MyNetworkClientDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNetworkClientDelegate.swift; sourceTree = "<group>"; };
-		EAB32E4F27EC9998003276E6 /* NullEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullEncodable.swift; sourceTree = "<group>"; };
 		EAB32E5127ECAA10003276E6 /* GraphQLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResponse.swift; sourceTree = "<group>"; };
 		EAB32E5327ECBF91003276E6 /* CollectionOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionOperation.swift; sourceTree = "<group>"; };
 		EAB32E5527ECC1CD003276E6 /* FetchCollectionUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCollectionUseCaseProtocol.swift; sourceTree = "<group>"; };
@@ -505,7 +503,6 @@
 		EAB32E4E27EC9988003276E6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				EAB32E4F27EC9998003276E6 /* NullEncodable.swift */,
 				EAB32E6027ECCEDA003276E6 /* DateFormatter+iso8601.swift */,
 				EAB32E6227ECCF0C003276E6 /* JSONDecoder+GraphQL.swift */,
 			);
@@ -667,7 +664,6 @@
 				EAB32E4D27EC86EB003276E6 /* MyNetworkClientDelegate.swift in Sources */,
 				EAB32E6A27ECD2B9003276E6 /* PaginatedIdInputType.swift in Sources */,
 				EAB32E5A27ECC9EB003276E6 /* CollectionImagesOperation.swift in Sources */,
-				EAB32E5027EC9998003276E6 /* NullEncodable.swift in Sources */,
 				EA66EE6B27E8996700725E22 /* ItemVO.swift in Sources */,
 				EA66EEA427E8E64300725E22 /* CoreDataManager.swift in Sources */,
 				EAC3E57027EB860B00AC294B /* GraphQLOperationBody.swift in Sources */,

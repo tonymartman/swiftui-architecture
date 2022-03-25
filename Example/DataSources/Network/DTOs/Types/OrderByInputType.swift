@@ -8,6 +8,6 @@
 import Foundation
 
 struct OrderByInputType: Encodable {
-    @NullEncodable var field: String?
-    @NullEncodable var ordering: String?
+    var field: String?
+    var ordering: String?
 }
