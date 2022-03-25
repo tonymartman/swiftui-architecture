@@ -10,7 +10,7 @@ import Foundation
 struct CollectionImagesOperation: GraphQLOperation {
     let input: PaginatedIdInputType
 
-    var query: String {
+    var definition: String {
         """
         query CollectionImages($input:PaginatedIdInputType!) {
           collectionImages(input: $input) {

@@ -10,7 +10,7 @@ import Foundation
 struct CollectionOperation: GraphQLOperation {
     let id: String
 
-    var query: String {
+    var definition: String {
         """
         query Collection($id:UUID!) {
           collection(id:$id) {

@@ -8,7 +8,7 @@
 import Foundation
 
 struct MyCollectionsOperation: GraphQLOperation {
-    var query: String {
+    var definition: String {
         """
         query MyCollections {
           myCollections {
