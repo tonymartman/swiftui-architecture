@@ -15,17 +15,14 @@ struct MyCollectionsOperation: GraphQLOperation {
             id
             name
             owner {
-              id
-              firstName
+              ...owner
             }
           }
         }
         """
     }
 
-    var operationName: String {
-        "MyCollections"
-    }
-
+    var operationName: String { "MyCollections" }
     var needsAuthorization: Bool { true }
+    var fragments: [GraphQLFragment] { [ OwnerFragment() ] }
 }

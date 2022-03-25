@@ -24,6 +24,6 @@ struct CollectionImagesOperation: GraphQLOperation {
     }
 
     var operationName: String { "CollectionImages" }
-
     var needsAuthorization: Bool { true }
+    var fragments: [GraphQLFragment] { [] }
 }

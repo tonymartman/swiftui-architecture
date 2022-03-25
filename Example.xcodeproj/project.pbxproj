@@ -58,6 +58,8 @@
 		EAB32E6827ECD29F003276E6 /* ImagePaginatedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E6727ECD29F003276E6 /* ImagePaginatedType.swift */; };
 		EAB32E6A27ECD2B9003276E6 /* PaginatedIdInputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E6927ECD2B9003276E6 /* PaginatedIdInputType.swift */; };
 		EAB32E6C27ECD2C8003276E6 /* OrderByInputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E6B27ECD2C8003276E6 /* OrderByInputType.swift */; };
+		EAB9584227EDC9E60072E241 /* GraphQLFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB9584127EDC9E60072E241 /* GraphQLFragment.swift */; };
+		EAB9584527EDCCC40072E241 /* OwnerFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB9584427EDCCC40072E241 /* OwnerFragment.swift */; };
 		EAC3E56B27EB1A7000AC294B /* FetchingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3E56A27EB1A7000AC294B /* FetchingType.swift */; };
 		EAC3E56E27EB85F100AC294B /* GraphQLOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3E56D27EB85F100AC294B /* GraphQLOperation.swift */; };
 		EAC3E57027EB860B00AC294B /* GraphQLOperationBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3E56F27EB860B00AC294B /* GraphQLOperationBody.swift */; };
@@ -118,6 +120,8 @@
 		EAB32E6727ECD29F003276E6 /* ImagePaginatedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePaginatedType.swift; sourceTree = "<group>"; };
 		EAB32E6927ECD2B9003276E6 /* PaginatedIdInputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedIdInputType.swift; sourceTree = "<group>"; };
 		EAB32E6B27ECD2C8003276E6 /* OrderByInputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderByInputType.swift; sourceTree = "<group>"; };
+		EAB9584127EDC9E60072E241 /* GraphQLFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLFragment.swift; sourceTree = "<group>"; };
+		EAB9584427EDCCC40072E241 /* OwnerFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerFragment.swift; sourceTree = "<group>"; };
 		EAC3E56A27EB1A7000AC294B /* FetchingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingType.swift; sourceTree = "<group>"; };
 		EAC3E56D27EB85F100AC294B /* GraphQLOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLOperation.swift; sourceTree = "<group>"; };
 		EAC3E56F27EB860B00AC294B /* GraphQLOperationBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLOperationBody.swift; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 				EA66EEAA27E8EAA500725E22 /* Core */,
 				EA8F48D527E9EA6D0025AF3A /* DTOs */,
 				EA66EE8027E8AFB100725E22 /* Operations */,
+				EAB9584327EDCCAB0072E241 /* Fragments */,
 				EA66EEA927E8EA9900725E22 /* Sources */,
 			);
 			path = Network;
@@ -527,6 +532,14 @@
 			path = Types;
 			sourceTree = "<group>";
 		};
+		EAB9584327EDCCAB0072E241 /* Fragments */ = {
+			isa = PBXGroup;
+			children = (
+				EAB9584427EDCCC40072E241 /* OwnerFragment.swift */,
+			);
+			path = Fragments;
+			sourceTree = "<group>";
+		};
 		EAC3E56927EB1A5D00AC294B /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,6 +553,7 @@
 			children = (
 				EAC3E56D27EB85F100AC294B /* GraphQLOperation.swift */,
 				EAC3E56F27EB860B00AC294B /* GraphQLOperationBody.swift */,
+				EAB9584127EDC9E60072E241 /* GraphQLFragment.swift */,
 				EAB32E5127ECAA10003276E6 /* GraphQLResponse.swift */,
 			);
 			path = GraphQL;
@@ -634,6 +648,7 @@
 				EA66EEA027E8DFD000725E22 /* ManagedObjectConvertible.swift in Sources */,
 				EAB32E6527ECD21E003276E6 /* OwnerDTO.swift in Sources */,
 				EA66EE7A27E8AF3600725E22 /* CollectionRepository.swift in Sources */,
+				EAB9584227EDC9E60072E241 /* GraphQLFragment.swift in Sources */,
 				EA66EE6D27E899A000725E22 /* ItemVO+Collection.swift in Sources */,
 				EA90E02427D8AD9F00AC85DB /* CollectionDetailViewModel.swift in Sources */,
 				EA66EE8C27E8C77100725E22 /* CollectionDBSource.swift in Sources */,
@@ -649,6 +664,7 @@
 				EAB32E5F27ECCC69003276E6 /* ImageDTO.swift in Sources */,
 				EAC3E57227EB865B00AC294B /* MyCollectionsOperation.swift in Sources */,
 				EA66EE9C27E8DD0400725E22 /* VO.swift in Sources */,
+				EAB9584527EDCCC40072E241 /* OwnerFragment.swift in Sources */,
 				EA90E03527D8E91F00AC85DB /* CollectionsSearchViewModel.swift in Sources */,
 				EAB32E6327ECCF0C003276E6 /* JSONDecoder+GraphQL.swift in Sources */,
 				EA66EE8327E8B00000725E22 /* CollectionFetchingDataSourceProtocol.swift in Sources */,
