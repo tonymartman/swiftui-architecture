@@ -16,9 +16,10 @@ final class NetworkClient {
 
     init(host: URL,
          decoder: JSONDecoder = JSONDecoder(),
+         configuration: URLSessionConfiguration = .default,
          delegate: NetworkClientDelegate = DefaultNetworkClientDelegate()) {
         self.host = host
-        self.session = URLSession(configuration: .default)
+        self.session = URLSession(configuration: configuration)
         self.decoder = decoder
         self.delegate = delegate
     }
@@ -26,7 +27,7 @@ final class NetworkClient {
     func send<T: Decodable>(_ operation: GraphQLOperation) async throws -> T {
         let (data, response) = try await send(operation)
         try validate(response: response, data: data)
-        return try decoder.decode(GraphQLResponse<T>.self, from: data).decodedValue
+        return try decode(data: data)
     }
 
     func send(_ operation: GraphQLOperation) async throws {
@@ -57,7 +58,17 @@ private extension NetworkClient {
     func validate(response: URLResponse, data: Data) throws {
         guard let httpResponse = response as? HTTPURLResponse else { return }
         if !(200..<300).contains(httpResponse.statusCode) {
-            throw delegate.client(self, didReceiveInvalidResponse: httpResponse, data: data)
+            let error = try decoder.decode(GraphQLError.self, from: data)
+            throw error
+        }
+    }
+
+    func decode<T: Decodable>(data: Data) throws -> T {
+        do {
+            return try decoder.decode(GraphQLResponse<T>.self, from: data).decodedValue
+        } catch {
+            let error = try decoder.decode(GraphQLError.self, from: data)
+            throw error
         }
     }
 }
@@ -65,16 +76,12 @@ private extension NetworkClient {
 protocol NetworkClientDelegate {
     func client(_ client: NetworkClient, willSendRequest request: inout URLRequest)
     func shouldClientRetry(_ client: NetworkClient, withError: Error) async -> Bool
-    func client(_ client: NetworkClient, didReceiveInvalidResponse response: HTTPURLResponse, data: Data) -> Error
     func client(_ client: NetworkClient, needsAuthorizationHeaderForRequest request: inout URLRequest)
 }
 
 extension NetworkClientDelegate {
     func client(_ client: NetworkClient, willSendRequest request: inout URLRequest) {}
     func shouldClientRetry(_ client: NetworkClient, withError: Error) async -> Bool { false }
-    func client(_ client: NetworkClient, didReceiveInvalidResponse response: HTTPURLResponse, data: Data) -> Error {
-        URLError(.unknown)
-    }
     func client(_ client: NetworkClient, needsAuthorizationHeaderForRequest request: inout URLRequest) {}
 }
 

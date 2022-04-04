@@ -58,6 +58,8 @@
 		EAB32E6827ECD29F003276E6 /* ImagePaginatedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E6727ECD29F003276E6 /* ImagePaginatedType.swift */; };
 		EAB32E6A27ECD2B9003276E6 /* PaginatedIdInputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E6927ECD2B9003276E6 /* PaginatedIdInputType.swift */; };
 		EAB32E6C27ECD2C8003276E6 /* OrderByInputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB32E6B27ECD2C8003276E6 /* OrderByInputType.swift */; };
+		EAB4745727FB190B00941FDB /* GraphQLError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4745627FB190B00941FDB /* GraphQLError.swift */; };
+		EAB4745C27FB201D00941FDB /* GraphQLErrorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4745B27FB201D00941FDB /* GraphQLErrorItem.swift */; };
 		EAB9584227EDC9E60072E241 /* GraphQLFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB9584127EDC9E60072E241 /* GraphQLFragment.swift */; };
 		EAB9584527EDCCC40072E241 /* OwnerFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB9584427EDCCC40072E241 /* OwnerFragment.swift */; };
 		EAC3E56B27EB1A7000AC294B /* FetchingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3E56A27EB1A7000AC294B /* FetchingType.swift */; };
@@ -120,6 +122,8 @@
 		EAB32E6727ECD29F003276E6 /* ImagePaginatedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePaginatedType.swift; sourceTree = "<group>"; };
 		EAB32E6927ECD2B9003276E6 /* PaginatedIdInputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedIdInputType.swift; sourceTree = "<group>"; };
 		EAB32E6B27ECD2C8003276E6 /* OrderByInputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderByInputType.swift; sourceTree = "<group>"; };
+		EAB4745627FB190B00941FDB /* GraphQLError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLError.swift; sourceTree = "<group>"; };
+		EAB4745B27FB201D00941FDB /* GraphQLErrorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLErrorItem.swift; sourceTree = "<group>"; };
 		EAB9584127EDC9E60072E241 /* GraphQLFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLFragment.swift; sourceTree = "<group>"; };
 		EAB9584427EDCCC40072E241 /* OwnerFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerFragment.swift; sourceTree = "<group>"; };
 		EAC3E56A27EB1A7000AC294B /* FetchingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingType.swift; sourceTree = "<group>"; };
@@ -532,6 +536,33 @@
 			path = Types;
 			sourceTree = "<group>";
 		};
+		EAB4745827FB1FEE00941FDB /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				EAC3E56D27EB85F100AC294B /* GraphQLOperation.swift */,
+				EAC3E56F27EB860B00AC294B /* GraphQLOperationBody.swift */,
+				EAB9584127EDC9E60072E241 /* GraphQLFragment.swift */,
+			);
+			path = Operation;
+			sourceTree = "<group>";
+		};
+		EAB4745927FB200500941FDB /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				EAB32E5127ECAA10003276E6 /* GraphQLResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		EAB4745A27FB200D00941FDB /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				EAB4745627FB190B00941FDB /* GraphQLError.swift */,
+				EAB4745B27FB201D00941FDB /* GraphQLErrorItem.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		EAB9584327EDCCAB0072E241 /* Fragments */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,10 +582,9 @@
 		EAC3E56C27EB85D000AC294B /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
-				EAC3E56D27EB85F100AC294B /* GraphQLOperation.swift */,
-				EAC3E56F27EB860B00AC294B /* GraphQLOperationBody.swift */,
-				EAB9584127EDC9E60072E241 /* GraphQLFragment.swift */,
-				EAB32E5127ECAA10003276E6 /* GraphQLResponse.swift */,
+				EAB4745827FB1FEE00941FDB /* Operation */,
+				EAB4745927FB200500941FDB /* Response */,
+				EAB4745A27FB200D00941FDB /* Error */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -662,9 +692,11 @@
 				EAB32E5227ECAA10003276E6 /* GraphQLResponse.swift in Sources */,
 				EA90E02927D8C4F500AC85DB /* ListViewModelProtocol.swift in Sources */,
 				EAB32E5F27ECCC69003276E6 /* ImageDTO.swift in Sources */,
+				EAB4745727FB190B00941FDB /* GraphQLError.swift in Sources */,
 				EAC3E57227EB865B00AC294B /* MyCollectionsOperation.swift in Sources */,
 				EA66EE9C27E8DD0400725E22 /* VO.swift in Sources */,
 				EAB9584527EDCCC40072E241 /* OwnerFragment.swift in Sources */,
+				EAB4745C27FB201D00941FDB /* GraphQLErrorItem.swift in Sources */,
 				EA90E03527D8E91F00AC85DB /* CollectionsSearchViewModel.swift in Sources */,
 				EAB32E6327ECCF0C003276E6 /* JSONDecoder+GraphQL.swift in Sources */,
 				EA66EE8327E8B00000725E22 /* CollectionFetchingDataSourceProtocol.swift in Sources */,
