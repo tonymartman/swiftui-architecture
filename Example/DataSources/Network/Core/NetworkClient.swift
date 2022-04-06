@@ -58,7 +58,7 @@ private extension NetworkClient {
     func validate(response: URLResponse, data: Data) throws {
         guard let httpResponse = response as? HTTPURLResponse else { return }
         if !(200..<300).contains(httpResponse.statusCode) {
-            let error = try decoder.decode(GraphQLError.self, from: data)
+            let error = try decodeError(data: data)
             throw error
         }
     }
@@ -67,9 +67,20 @@ private extension NetworkClient {
         do {
             return try decoder.decode(GraphQLResponse<T>.self, from: data).decodedValue
         } catch {
-            let error = try decoder.decode(GraphQLError.self, from: data)
+            let error = try decodeError(data: data)
             throw error
         }
+    }
+
+    func decodeError(data: Data) throws -> GraphQLError {
+        guard let error = GraphQLError(data: data) else { throw DecodeError.errorDataNotFound }
+        return error
+    }
+}
+
+private extension NetworkClient {
+    enum DecodeError: Error {
+        case errorDataNotFound
     }
 }
 
